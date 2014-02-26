@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>WebRTC Collect </title>
+    <style>
+        video {
+            -webkit-transform: scaleX(-1);
+        }
+    </style>
+</head>
+<body>
+<video id="me" width="1500" height="600" autoplay="true"></video>
+</body>
+<script>
+    var URL = window.URL || window.webkitURL;
+    navigator.getUserMedia  = navigator.getUserMedia ||
+                              navigator.webkitGetUserMedia ||
+                              navigator.mozGetUserMedia;
+    var video2 = {video: {
+        mandatory: {
+            maxWidth: 1280, maxHeight: 720
+            //maxWidth: 960, maxHeight: 720
+            //maxWidth: 640, maxHeight: 480
+            //maxWidth: 320, maxHeight: 180
+        },
+        optional: [{ facingMode: "environment" }]
+    }, audio: true};
+
+    var me = document.getElementById('me');
+
+    if (navigator.getUserMedia) {
+        navigator.getUserMedia(video2, onSuccess, onError);
+    }
+
+    function onSuccess(stream) {
+        me.src = URL.createObjectURL(stream);
+    }
+
+    function onError(e) {
+        // error
+        console.log(e);
+    }
+
+</script>
+</html>

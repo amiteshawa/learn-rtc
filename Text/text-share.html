@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Text Share</title>
+    <style>
+        button{
+            height: 100px;
+            width: 200px;
+            font-weight: bolder;
+            font-size: xx-large;
+        }
+        #text{
+            width: 400px;
+            border: black 1px solid;
+        }
+        #log{
+            display: none;
+            border: black 1px solid;
+            width: 400px;
+            height: 250px;
+            overflow: scroll;
+        }
+        #container{
+            display:none;
+        }
+        #histext {
+            font-weight: bolder;
+            color: #0000ff;
+        }
+        #mytext {
+            font-style: italic;
+            font-weight: bolder;
+        }
+    </style>
+</head>
+<body>
+My User ID : <span id="iam"></span>
+<br/>
+
+
+<button onclick = "TextShare.createInvite('JQuery');" id="invite">Invite</button>
+
+<div id="rooms"></div>
+<div id="log"></div>
+<div id="container">
+    <input type="text" id="text" onkeydown="send">
+    <input type="button" onclick="TextShare.send()" value="Send">
+</div>
+<script src="rtc.js"> </script>
+<script>
+    TextShare.init();
+    document.getElementById('text').addEventListener("keydown", send, false);
+    function send(e){
+        if(e.which === 13) {TextShare.send()}
+    }
+
+</script>
+</body>
+</html>

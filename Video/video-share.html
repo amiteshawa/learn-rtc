@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Video Conf</title>
+    <style>
+        button{
+            height: 100px;
+            width: 200px;
+            font-weight: bolder;
+            font-size: xx-large;
+        }
+    </style>
+</head>
+<body>
+I am user <div id="iam"></div>
+<button onclick="VideoChat.createInvite('JQuery');" id="invite">Invite</button>
+<div id="rooms"></div>
+<video id="my" width="400" height="400" autoplay="true"></video>
+<video id="others" width="400" height="400" autoplay="true"></video>
+<script src="rtc.js"> </script>
+<script>
+    VideoChat.init();
+</script>
+</body>
+</html>

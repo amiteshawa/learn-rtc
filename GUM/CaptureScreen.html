@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>getUserMedia </title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+
+<video id="me" width="1300" height="1000" autoplay="true"></video>
+
+</body>
+<script>
+    window.URL = window.URL || window.webkitURL;
+    navigator.getUserMedia  = navigator.getUserMedia ||
+                              navigator.webkitGetUserMedia ||
+                              navigator.mozGetUserMedia;
+
+    var me = document.getElementById('me');
+
+    if (navigator.getUserMedia) {
+        navigator.getUserMedia( { video: {
+            mandatory: { chromeMediaSource: 'screen' },
+            optional: []
+        }, audio: false}, onSuccess, onError);
+    }
+
+    function onSuccess(stream) {
+        console.log(stream);
+
+        me.src = window.URL.createObjectURL(stream);
+        //setTimeout(function(){console.log('stop'); stream.getVideoTracks()[0].stop();}, 5000);
+    }
+
+    function onError(e) {
+        // error
+        console.log(e);
+    }
+
+</script>
+</html>
