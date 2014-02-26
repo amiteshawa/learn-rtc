@@ -100,7 +100,6 @@ var TextShare = (function () {
         },
         openDataChannel = function(peer){
             try {
-                // Reliable Data Channels not yet supported in Chrome
                 channel = peer.createDataChannel("sendDataChannel", {reliable: false});
             } catch (e) {
                 console.log('DataChannel : ', e);
