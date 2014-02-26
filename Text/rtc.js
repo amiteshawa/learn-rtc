@@ -17,13 +17,7 @@ var TextShare = (function () {
     var init = function () {
             websocket = new WebSocket('ws://127.0.0.1:1337');
             STUN = {url: 'stun:stun.l.google.com:19302'};
-            //TURN = {url: 'turn:10.0.0.7:3333', credential: 'madhur', username: 'amitesh'};
-            //TURN = {url: 'turn:10.0.0.7:3333', credential: 'MmE5NjM4Yjc1ZjZiZTQ1ZjhkYzlmMmU4Yjc1NzBlY2Q1YzViZGU1Zg==', username: '1393139326:amitesh'};
-
-			TURN = {"username":"amitesh:1393412082","credential":"NGFmNGRlMjIxOWZmMTVjMzMxMDliYzUzZDIxOWE1OWI0NTBmZGZiNg==","url":"turn:10.0.0.2:3333?transport=udp"};
-
-
-
+	    TURN = {"username":"amitesh:1393412082","credential":"NGFmNGRlMjIxOWZmMTVjMzMxMDliYzUzZDIxOWE1OWI0NTBmZGZiNg==","url":"turn:10.0.0.2:3333?transport=udp"};
 
             config.iceServers = [STUN, TURN];
 
